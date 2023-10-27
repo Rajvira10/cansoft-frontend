@@ -6,6 +6,7 @@ import Post from "./Post";
 interface PostsProps {}
 
 type Post = {
+  id: string;
   title: string;
   content: string;
 };
@@ -24,7 +25,7 @@ const Posts: FC<PostsProps> = ({}) => {
     <div className="container2" style={{ padding: "80px 0 20px 0" }}>
       <ul className="row">
         {posts.map((post: Post) => {
-          return <Post post={post} />;
+          return <Post post={post} key={post.id} />;
         })}
       </ul>
     </div>

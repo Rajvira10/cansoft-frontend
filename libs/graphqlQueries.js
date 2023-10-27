@@ -5,6 +5,7 @@ export async function getAllPosts() {
     query: `{
                 posts {
                     nodes {
+                    id
                     title
                     content
                     }
@@ -51,10 +52,9 @@ export async function getMenuItems() {
 export async function getHero() {
   const query = {
     query: `{
-                page(id: "cG9zdDoxNA==") {
+                page(id: "cG9zdDoyNQ==") {
                     title
-                    content
-                
+                    content           
                 }
             }`,
   };
