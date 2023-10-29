@@ -1,19 +1,7 @@
-"use client";
 import { getMenuItems } from "@/libs/graphqlQueries";
-import { FC, useState, useEffect } from "react";
 
-interface NavbarProps {}
-
-const Navbar: FC<NavbarProps> = ({}) => {
-  const [menuItems, setMenuItems] = useState([]) as any[];
-  useEffect(() => {
-    fetchAllPosts();
-  }, []);
-
-  const fetchAllPosts = async () => {
-    const allMenuItems = await getMenuItems();
-    setMenuItems(allMenuItems.data.menuItems.nodes);
-  };
+const Navbar = async () => {
+  const menuItems = await getMenuItems();
 
   const renderMenu = (items: any[]) => {
     return items.map((menuItem: any) => {

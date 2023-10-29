@@ -13,8 +13,8 @@ export async function getAllPosts() {
             }`,
   };
 
-  const res = graphqlRequest(query);
-  const allPosts = res;
+  const res = await graphqlRequest(query);
+  const allPosts = await res.data.posts.nodes;
 
   return allPosts;
 }
@@ -43,8 +43,8 @@ export async function getMenuItems() {
         }`,
   };
 
-  const res = graphqlRequest(query);
-  const menuItems = res;
+  const res = await graphqlRequest(query);
+  const menuItems = await res.data.menuItems.nodes;
 
   return menuItems;
 }
@@ -59,8 +59,8 @@ export async function getHero() {
             }`,
   };
 
-  const res = graphqlRequest(query);
-  const hero = res;
+  const res = await graphqlRequest(query);
+  const hero = await res.data.page;
 
   return hero;
 }

@@ -1,9 +1,5 @@
-"use client";
-import { FC, useEffect, useState } from "react";
 import { getAllPosts } from "../libs/graphqlQueries";
 import Post from "./Post";
-
-interface PostsProps {}
 
 type Post = {
   id: string;
@@ -11,16 +7,9 @@ type Post = {
   content: string;
 };
 
-const Posts: FC<PostsProps> = ({}) => {
-  const [posts, setPosts] = useState([]) as any[];
-  useEffect(() => {
-    fetchAllPosts();
-  }, []);
+const Posts = async () => {
+  const posts = await getAllPosts();
 
-  const fetchAllPosts = async () => {
-    const allPosts = await getAllPosts();
-    setPosts(allPosts.data.posts.nodes);
-  };
   return (
     <div className="container2" style={{ padding: "80px 0 20px 0" }}>
       <ul className="row">
